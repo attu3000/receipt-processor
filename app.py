@@ -6,14 +6,10 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# In-memory storage for receipts
 receipts = {}
 
 
 def calculate_points(receipt):
-    """
-    Calculate points based on the receipt's properties.
-    """
     points = 0
 
     # One point for every alphanumeric character in the retailer name
@@ -53,9 +49,7 @@ def calculate_points(receipt):
     return points
 
 def validate_receipt(receipt):
-    """
-    Validates the structure and format of the receipt.
-    """
+
     required_fields = {"retailer", "purchaseDate", "purchaseTime", "items", "total"}
     
     # Checks required fields
